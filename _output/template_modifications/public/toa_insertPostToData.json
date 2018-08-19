@@ -1,0 +1,9 @@
+{
+    "template": "post_macros",
+    "description": "toa_insertPostToData",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<xf:macro name=\"post\" arg-post=\"!\" arg-thread=\"!\">",
+    "replace": "$0\n\n{{ $xf.app.data('Truonglv\\ThreadOwnerAvatar:Post').getPost($thread.FirstPost) }}"
+}

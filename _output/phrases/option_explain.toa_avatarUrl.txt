@@ -1,0 +1,1 @@
+Avatar size should be: 96x96 pixels.
