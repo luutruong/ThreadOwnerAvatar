@@ -1,0 +1,9 @@
+{
+    "template": "thread_list_macros",
+    "description": "toa_insertThreadToData",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<div class=\"structItem-iconContainer\">",
+    "replace": "$0\n\n{{ $xf.app.data('Truonglv\\ThreadOwnerAvatar:Post').getPost($thread) }}"
+}
