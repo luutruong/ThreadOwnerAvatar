@@ -5,5 +5,5 @@
     "enabled": true,
     "action": "str_replace",
     "find": "<div class=\"structItem-iconContainer\">",
-    "replace": "$0\n\n{{ $xf.app.data('Truonglv\\ThreadOwnerAvatar:Post').getPost($thread) }}"
+    "replace": "$0\n\n{{ $xf.app.data('Truonglv\\ThreadOwnerAvatar:Thread').getThread($thread) }}"
 }

@@ -6,7 +6,7 @@
 
 namespace Truonglv\ThreadOwnerAvatar\XF\Entity;
 
-use Truonglv\ThreadOwnerAvatar\Data\Post;
+use Truonglv\ThreadOwnerAvatar\Data\Thread;
 
 /**
  * Class User
@@ -17,32 +17,22 @@ class User extends XFCP_User
 {
     public function getAvatarType()
     {
-        /** @var Post $postData */
-        $postData = $this->app()->data('Truonglv\ThreadOwnerAvatar:Post');
-        /** @var \XF\Entity\Post|null $post */
-        $post = $postData->getPost();
+        /** @var Thread $data */
+        $data = $this->app()->data('Truonglv\ThreadOwnerAvatar:Thread');
 
-        if ($post
-            && $post->user_id == $this->user_id
-            && $this->app()->options()->offsetGet('toa_avatarUrl')
-        ) {
+        if ($data->isReplaceAvatar($this)) {
             return 'custom';
         }
-        
+
         return parent::getAvatarType();
     }
 
     public function getAvatarUrl($sizeCode, $forceType = null, $canonical = false)
     {
-        /** @var Post $postData */
-        $postData = $this->app()->data('Truonglv\ThreadOwnerAvatar:Post');
-        /** @var \XF\Entity\Post|null $post */
-        $post = $postData->getPost();
+        /** @var Thread $data */
+        $data = $this->app()->data('Truonglv\ThreadOwnerAvatar:Thread');
 
-        if ($post
-            && $post->user_id == $this->user_id
-            && $this->app()->options()->offsetGet('toa_avatarUrl')
-        ) {
+        if ($data->isReplaceAvatar($this)) {
             return $this->app()->options()->offsetGet('toa_avatarUrl');
         }
 
